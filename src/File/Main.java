@@ -56,19 +56,55 @@ public class Main {
 //            e.printStackTrace();
 //        }
 
-        try (Writer writer = new FileWriter(file);
-             Reader reader = new FileReader(file)) {
+//        try (Writer writer = new FileWriter(file);
+//             Reader reader = new FileReader(file)) {
+//
+//            writer.write(text);
+//            writer.close();
+//
+//            int currentByte = 0;
+//            while ((currentByte = reader.read()) != -1) {
+//                System.out.print(Character.toString(currentByte));
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+//             BufferedReader reader = new BufferedReader(new FileReader(file))) {
+//
+//            writer.write(text);
+//            writer.newLine();
+//            writer.write(text);
+//
+//            writer.close();
+//
+//            String currentByte = null;
+//            while ((currentByte = reader.readLine()) != null) {
+//                System.out.println(currentByte);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+             BufferedReader reader = new BufferedReader(new FileReader(file))) {
 
             writer.write(text);
+            writer.newLine();
+            writer.write(text);
+
             writer.close();
 
-            int currentByte = 0;
-            while ((currentByte = reader.read()) != -1) {
-                System.out.print(Character.toString(currentByte));
+            String currentByte = null;
+            while ((currentByte = reader.readLine()) != null) {
+                System.out.println(currentByte);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         System.out.println();
         System.out.println("OK");
         while (true) ;
